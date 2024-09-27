@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
-import { LoginPage } from "../../pages/LoginPage";
-import { InventoryPage } from "../../pages/InventoryPage";
+import { LoginPage } from "../../../pages/LoginPage";
+import { InventoryPage } from "../../../pages/InventoryPage";
 
-test.describe("Sorting by name tests", () => {
+test.describe("Sort by name standard_user tests", () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
 

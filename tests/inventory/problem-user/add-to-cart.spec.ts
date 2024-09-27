@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
-import { LoginPage } from "../../pages/LoginPage";
-import { InventoryPage } from "../../pages/InventoryPage";
-import { CartPage } from "../../pages/CartPage";
+import { LoginPage } from "../../../pages/LoginPage";
+import { InventoryPage } from "../../../pages/InventoryPage";
+import { CartPage } from "../../../pages/CartPage";
 
 const productList = [
   "Sauce Labs Backpack",
@@ -12,7 +12,7 @@ const productList = [
   "Test.allTheThings() T-Shirt (Red)",
 ];
 
-test.describe("Add to cart tests", () => {
+test.describe("Add to cart problem_user tests", () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
   let cartPage: CartPage;
@@ -23,7 +23,7 @@ test.describe("Add to cart tests", () => {
     cartPage = new CartPage(page);
 
     await loginPage.goto();
-    await loginPage.login("standard_user", "secret_sauce");
+    await loginPage.login("problem_user", "secret_sauce");
   });
 
   productList.forEach((product) => {
