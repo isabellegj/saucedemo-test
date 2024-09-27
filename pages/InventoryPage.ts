@@ -50,4 +50,14 @@ export class InventoryPage {
     );
     return prices;
   }
+
+  async getProductNames(): Promise<string[]> {
+    const nameElements = await this.page.locator(".inventory_item_name").all();
+    const productNames = await Promise.all(
+      nameElements.map(async (element) => {
+        return await element.innerText();
+      })
+    );
+    return productNames;
+  }
 }
