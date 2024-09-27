@@ -28,8 +28,26 @@ export class InventoryPage {
   }
 
   async getCartItemCount(): Promise<number> {
-    const cartBadge = await this.page.locator(".shopping_cart_badge");
+    const cartBadge = this.page.locator(".shopping_cart_badge");
     const itemCount = await cartBadge.innerText();
     return parseInt(itemCount) || 0;
+  }
+
+  async selectSortOption(option: string) {
+    const sortSelector = ".product_sort_container";
+    await this.page.selectOption(sortSelector, option);
+  }
+
+  async getProductPrices(): Promise<number[]> {
+    const priceElements = await this.page
+      .locator(".inventory_item_price")
+      .all();
+    const prices = await Promise.all(
+      priceElements.map(async (element) => {
+        const priceText = await element.innerText();
+        return parseFloat(priceText.replace("$", "").trim());
+      })
+    );
+    return prices;
   }
 }
