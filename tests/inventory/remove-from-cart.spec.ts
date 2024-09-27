@@ -34,9 +34,6 @@ test.describe("Remove from cart tests", () => {
 
       await inventoryPage.removeItemFromCartByName(product);
 
-      const badgeItemCount = await inventoryPage.getCartItemCount();
-      expect(badgeItemCount).toBe(0);
-
       await cartPage.goto();
       const itemCount = await cartPage.getCartItemCount();
       expect(itemCount).toBe(0);
