@@ -26,9 +26,12 @@ test.describe("Add to cart tests", () => {
     await loginPage.login("standard_user", "secret_sauce");
   });
 
-  productList.forEach((product) => {
+  productList.forEach((product, index) => {
     test(`Should add ${product} and verify in cart page`, async () => {
       await inventoryPage.addItemToCartByName(product);
+
+      const itemCount = await inventoryPage.getCartItemCount();
+      expect(itemCount).toBe(index + 1);
 
       await cartPage.goto();
 
