@@ -62,4 +62,12 @@ export class InventoryPage {
     const productTitle = await titleList.allTextContents();
     return productTitle;
   }
+
+  async getProductImageSrc(itemDataTest: string) {
+    const imageSelector = this.page.locator(
+      `img[data-test="inventory-item-${itemDataTest}-img"]`
+    );
+
+    const imageSrc = await imageSelector.getAttribute("src");
+  }
 }
