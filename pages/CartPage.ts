@@ -32,7 +32,7 @@ export class CartPage {
     return await this.page.isVisible(".cart_contents_container");
   }
 
-  async proceedToCheckout() {
+  async checkoutClick() {
     await this.page.click('[data-test="checkout"]');
   }
 }

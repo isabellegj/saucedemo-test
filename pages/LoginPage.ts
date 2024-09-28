@@ -3,9 +3,9 @@ import { Page } from "@playwright/test";
 export class LoginPage {
   private page: Page;
 
-  private usernameInput = "#user-name";
-  private passwordInput = "#password";
-  private loginButton = "#login-button";
+  private usernameInput = '[data-test="username"]';
+  private passwordInput = '[data-test="password"]';
+  private loginButton = '[data-test="login-button"]';
   private errorMessage = '[data-test="error"]';
 
   constructor(page: Page) {
