@@ -22,6 +22,9 @@ test.describe("Login tests", () => {
   successfullyUsersList.forEach((user) => {
     test(`Should login successfully with user ${user}`, async () => {
       await loginPage.login(user, "secret_sauce");
+
+      expect(await inventoryPage.isInventoryUrlCorrect());
+
       expect(await inventoryPage.isInventoryPageVisible()).toBeTruthy();
     });
   });

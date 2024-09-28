@@ -19,6 +19,8 @@ test.describe("Delay login test", () => {
 
     expect(inventoryPage.isInventoryPageVisible()).toBeTruthy();
 
+    expect(await inventoryPage.isInventoryUrlCorrect());
+
     const endTime = Date.now();
 
     const loginTime = endTime - startTime;

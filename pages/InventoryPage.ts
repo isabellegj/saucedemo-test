@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 export class InventoryPage {
   private page: Page;
@@ -11,6 +11,12 @@ export class InventoryPage {
 
   async isInventoryPageVisible() {
     return await this.page.isVisible(this.inventoryContainer);
+  }
+
+  async isInventoryUrlCorrect() {
+    return expect(this.page.url()).toBe(
+      "https://www.saucedemo.com/inventory.html"
+    );
   }
 
   async goto() {

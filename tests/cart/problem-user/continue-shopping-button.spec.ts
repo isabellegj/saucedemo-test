@@ -25,11 +25,7 @@ test.describe("Continue Shopping button problem_user tests", () => {
 
     await cartPage.page.click('[data-test="continue-shopping"]');
 
-    expect(cartPage.page.url()).toBe(
-      "https://www.saucedemo.com/inventory.html"
-    );
-
-    const isInventoryPageVisible = await inventoryPage.isInventoryPageVisible();
-    expect(isInventoryPageVisible).toBe(true);
+    expect(await inventoryPage.isInventoryUrlCorrect());
+    expect(await inventoryPage.isInventoryPageVisible()).toBeTruthy();
   });
 });
