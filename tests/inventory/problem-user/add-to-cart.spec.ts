@@ -3,13 +3,13 @@ import { LoginPage } from "../../../pages/LoginPage";
 import { InventoryPage } from "../../../pages/InventoryPage";
 import { CartPage } from "../../../pages/CartPage";
 
-const productList = [
-  "Sauce Labs Backpack",
-  "Sauce Labs Bike Light",
-  "Sauce Labs Bolt T-Shirt",
-  "Sauce Labs Fleece Jacket",
-  "Sauce Labs Onesie",
-  "Test.allTheThings() T-Shirt (Red)",
+const productDataTestList = [
+  "sauce-labs-backpack",
+  "sauce-labs-bike-light",
+  "sauce-labs-bolt-t-shirt",
+  "sauce-labs-fleece-jacket",
+  "sauce-labs-onesie",
+  "test.allthethings()-t-shirt-(red)",
 ];
 
 test.describe("Add to cart problem_user tests", () => {
@@ -26,9 +26,9 @@ test.describe("Add to cart problem_user tests", () => {
     await loginPage.login("problem_user", "secret_sauce");
   });
 
-  productList.forEach((product) => {
+  productDataTestList.forEach((product) => {
     test(`Should add ${product} and verify in cart page`, async () => {
-      await inventoryPage.addItemToCartByName(product);
+      await inventoryPage.addItemToCartByDataTest(product);
 
       const itemCount = await inventoryPage.getCartItemCount();
       expect(itemCount).toBe(1);

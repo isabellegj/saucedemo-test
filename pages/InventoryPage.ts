@@ -23,13 +23,13 @@ export class InventoryPage {
     await this.page.goto("https://www.saucedemo.com/inventory.html");
   }
 
-  async addItemToCartByName(itemName: string) {
-    const itemSelector = `//*[contains(text(), "${itemName}")]/ancestor::div[@class="inventory_item"]//button[text()="Add to cart"]`;
+  async addItemToCartByDataTest(itemDataTest: string) {
+    const itemSelector = `[data-test="add-to-cart-${itemDataTest}"]`;
     await this.page.click(itemSelector);
   }
 
-  async removeItemFromCartByName(itemName: string) {
-    const itemSelector = `//*[contains(text(), "${itemName}")]/ancestor::div[@class="inventory_item"]//button[text()="Remove"]`;
+  async removeItemFromCartByDataTest(itemDataTest: string) {
+    const itemSelector = `[data-test="remove-${itemDataTest}"]`;
     await this.page.click(itemSelector);
   }
 
@@ -58,12 +58,8 @@ export class InventoryPage {
   }
 
   async getProductNames(): Promise<string[]> {
-    const nameElements = await this.page.locator(".inventory_item_name").all();
-    const productNames = await Promise.all(
-      nameElements.map(async (element) => {
-        return await element.innerText();
-      })
-    );
-    return productNames;
+    const titleList = await this.page.locator(".inventory_item_name");
+    const productTitle = await titleList.allTextContents();
+    return productTitle;
   }
 }

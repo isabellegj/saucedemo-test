@@ -3,13 +3,13 @@ import { LoginPage } from "../../../pages/LoginPage";
 import { InventoryPage } from "../../../pages/InventoryPage";
 import { CartPage } from "../../../pages/CartPage";
 
-const productList = [
-  "Sauce Labs Backpack",
-  "Sauce Labs Bike Light",
-  "Sauce Labs Bolt T-Shirt",
-  "Sauce Labs Fleece Jacket",
-  "Sauce Labs Onesie",
-  "Test.allTheThings() T-Shirt (Red)",
+const productDataTestList = [
+  "sauce-labs-backpack",
+  "sauce-labs-bike-light",
+  "sauce-labs-bolt-t-shirt",
+  "sauce-labs-fleece-jacket",
+  "sauce-labs-onesie",
+  "test.allthethings()-t-shirt-(red)",
 ];
 
 test.describe("Remove from cart standard_user tests", () => {
@@ -26,13 +26,13 @@ test.describe("Remove from cart standard_user tests", () => {
     await loginPage.login("standard_user", "secret_sauce");
   });
 
-  productList.forEach((product) => {
+  productDataTestList.forEach((product) => {
     test(`Should remove ${product} from cart`, async () => {
-      await inventoryPage.addItemToCartByName(product);
+      await inventoryPage.addItemToCartByDataTest(product);
 
       await inventoryPage.goto();
 
-      await inventoryPage.removeItemFromCartByName(product);
+      await inventoryPage.removeItemFromCartByDataTest(product);
 
       await cartPage.goto();
       const itemCount = await cartPage.getCartItemCount();
