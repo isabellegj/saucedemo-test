@@ -12,9 +12,9 @@ Com o objetivo de cobrir diferentes cenários, o projeto organiza os testes em p
 
 ## Testes realizados
 
-_Login_: login com sucesso, login com erro e login com delay.
-_Inventário_: adicionar produto ao carrinho, remover produto do carrinho, ordenar por nome e ordenar por preço.
-_Carrinho_: remover produto do carrinho, botão de continuar comprando e botão de checkout.
+- _Login_: login com sucesso, login com erro e login com delay.
+- _Inventário_: adicionar produto ao carrinho, remover produto do carrinho, ordenar por nome e ordenar por preço.
+- _Carrinho_: remover produto do carrinho, botão de continuar comprando e botão de checkout.
 
 ### Resumo dos Resultados
 
