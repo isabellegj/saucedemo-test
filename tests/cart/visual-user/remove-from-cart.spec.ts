@@ -3,16 +3,16 @@ import { LoginPage } from "../../../pages/LoginPage";
 import { InventoryPage } from "../../../pages/InventoryPage";
 import { CartPage } from "../../../pages/CartPage";
 
-const productList = [
-  "Sauce Labs Backpack",
-  "Sauce Labs Bike Light",
-  "Sauce Labs Bolt T-Shirt",
-  "Sauce Labs Fleece Jacket",
-  "Sauce Labs Onesie",
-  "Test.allTheThings() T-Shirt (Red)",
+const productDataTestList = [
+  "sauce-labs-backpack",
+  "sauce-labs-bike-light",
+  "sauce-labs-bolt-t-shirt",
+  "sauce-labs-fleece-jacket",
+  "sauce-labs-onesie",
+  "test.allthethings()-t-shirt-(red)",
 ];
 
-productList.forEach((product) => {
+productDataTestList.forEach((product) => {
   test.describe("Remove from cart visual_user tests", () => {
     let loginPage: LoginPage;
     let inventoryPage: InventoryPage;
@@ -27,7 +27,7 @@ productList.forEach((product) => {
       await loginPage.login("visual_user", "secret_sauce");
 
       await inventoryPage.goto();
-      await inventoryPage.addItemToCartByName(product);
+      await inventoryPage.addItemToCartByDataTest(product);
     });
 
     test(`Should remove ${product} from cart using the remove button`, async () => {
@@ -36,7 +36,7 @@ productList.forEach((product) => {
       const cartItemsBeforeRemoval = await cartPage.getCartItems();
       expect(cartItemsBeforeRemoval).toContain(product);
 
-      await cartPage.removeItemByName(product);
+      await cartPage.removeItemFromCartByDataTest(product);
 
       const cartItemsAfterRemoval = await cartPage.getCartItems();
       expect(cartItemsAfterRemoval).not.toContain(product);

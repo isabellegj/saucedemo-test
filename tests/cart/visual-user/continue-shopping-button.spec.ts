@@ -17,7 +17,7 @@ test.describe("Continue Shopping button visual_user tests", () => {
     await loginPage.login("visual_user", "secret_sauce");
 
     await inventoryPage.goto();
-    await inventoryPage.addItemToCartByName("Sauce Labs Backpack");
+    await inventoryPage.addItemToCartByDataTest("sauce-labs-backpack");
   });
 
   test("Should redirect to inventory page when continue shopping is clicked", async () => {

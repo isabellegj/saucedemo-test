@@ -16,8 +16,8 @@ export class CartPage {
     return cartItems.length;
   }
 
-  async removeItemByName(itemName: string) {
-    const itemSelector = `//*[contains(text(), "${itemName}")]/ancestor::div[@class="cart_item"]//button[text()="Remove"]`;
+  async removeItemFromCartByDataTest(itemDataTest: string) {
+    const itemSelector = `[data-test="remove-${itemDataTest}"]`;
     await this.page.click(itemSelector);
   }
 

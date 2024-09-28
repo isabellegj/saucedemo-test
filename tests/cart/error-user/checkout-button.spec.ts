@@ -19,7 +19,7 @@ test.describe("Checkout button error_user test", () => {
     await loginPage.goto();
     await loginPage.login("error_user", "secret_sauce");
 
-    await inventoryPage.addItemToCartByName("Sauce Labs Backpack");
+    await inventoryPage.addItemToCartByDataTest("sauce-labs-backpack");
   });
 
   test("Should navigate to checkout page when checkout button is clicked", async () => {
