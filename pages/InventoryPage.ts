@@ -64,10 +64,12 @@ export class InventoryPage {
   }
 
   async getProductImageSrc(itemDataTest: string) {
-    const imageSelector = this.page.locator(
+    const imageSelector = await this.page.locator(
       `img[data-test="inventory-item-${itemDataTest}-img"]`
     );
 
     const imageSrc = await imageSelector.getAttribute("src");
+
+    return imageSrc;
   }
 }

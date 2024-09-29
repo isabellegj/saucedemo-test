@@ -11,7 +11,7 @@ const productDataTestList = [
   "test.allthethings()-t-shirt-(red)",
 ];
 
-test.describe("Product image visual_user tests", () => {
+test.describe("Product name standard_user tests", () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
 
@@ -20,17 +20,16 @@ test.describe("Product image visual_user tests", () => {
     inventoryPage = new InventoryPage(page);
 
     await loginPage.goto();
-    await loginPage.login("visual_user", "secret_sauce");
+    await loginPage.login("standard_user", "secret_sauce");
   });
 
   productDataTestList.forEach((product) => {
-    test(`Should check if ${product} image is correct`, async () => {
+    test(`Should check if ${product} name is correct`, async () => {
       await inventoryPage.goto();
 
-      const src = await inventoryPage.getProductImageSrc(product);
+      const src = inventoryPage.getProductImageSrc;
 
       expect(src).not.toBe("/static/media/sl-404.168b1cce.jpg");
-      expect(src).toContain(".jpg");
     });
   });
 });

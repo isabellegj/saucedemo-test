@@ -27,9 +27,10 @@ test.describe("Product image problem-user tests", () => {
     test(`Should check if ${product} image is correct`, async () => {
       await inventoryPage.goto();
 
-      const src = inventoryPage.getProductImageSrc;
+      const src = await inventoryPage.getProductImageSrc(product);
 
       expect(src).not.toBe("/static/media/sl-404.168b1cce.jpg");
+      expect(src).toContain(".jpg");
     });
   });
 });
