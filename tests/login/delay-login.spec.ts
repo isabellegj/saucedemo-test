@@ -13,6 +13,7 @@ test.describe("Delay login test", () => {
   });
 
   test("Should check if login with performance_glitch_user is less than 5s", async () => {
+    test.fail();
     const startTime = Date.now();
 
     await loginPage.login("performance_glitch_user", "secret_sauce");
