@@ -10,12 +10,6 @@ O padrão _Page Objects_ foi utilizado para organizar o projeto, dessa forma cad
 
 Com o objetivo de cobrir diferentes cenários, o projeto organiza os testes em pastas por página (cart, inventory e login) e por usuário (error-user, problem-user, standard-user e visual-user). Dessa forma podemos testar e analisar o comportamento da aplicação para cada um dos users, de forma organizada.
 
-## Testes realizados
-
-- _Login_: login com sucesso, login com erro e login com delay.
-- _Inventário_: adicionar produto ao carrinho, remover produto do carrinho, ordenar por nome, ordenar por preço , checar se a imagem do produto está correta (se não é a imagem do cachorro) e checar se o nome do produto está correto (começando com Sauce Labs).
-- _Carrinho_: remover produto do carrinho, botão de continuar comprando e botão de checkout.
-
 ## Resultados **FAILED**
 
 Nos testes delay-login.spec.ts e /inventory/problem-user/product-image.spec.ts usei o test.fail(), pois todos os testes em ambas as suítes deverão falhar.
