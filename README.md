@@ -13,11 +13,10 @@ Com o objetivo de cobrir diferentes cenários, o projeto organiza os testes em p
 ## Testes realizados
 
 - _Login_: login com sucesso, login com erro e login com delay.
-- _Inventário_: adicionar produto ao carrinho, remover produto do carrinho, ordenar por nome e ordenar por preço.
+- _Inventário_: adicionar produto ao carrinho, remover produto do carrinho, ordenar por nome, ordenar por preço e checar se a imagem do produto está correta.
 - _Carrinho_: remover produto do carrinho, botão de continuar comprando e botão de checkout.
 
-### Resumo dos Resultados
+### Sobre os resultados **FAILED**
 
-- _Total de Testes_: **312**
-- _Passou_: **210**
-- _Falhou_: **102**
+Nos testes delay-login.spec.ts e /inventory/problem-user/product-image.spec.ts usei o test.fail(), pois todos os testes em ambas as suítes deverão falhar.
+Nos outros casos, os testes deram resultados mesclados, o que possibilita observar em quais produtos e users exatos os erros ocorrem.
