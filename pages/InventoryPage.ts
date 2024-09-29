@@ -58,9 +58,9 @@ export class InventoryPage {
   }
 
   async getProductNames(): Promise<string[]> {
-    const titleList = await this.page.locator(".inventory_item_name");
-    const productTitle = await titleList.allTextContents();
-    return productTitle;
+    const titleLocator = await this.page.locator(".inventory_item_name");
+    const productTitleList = await titleLocator.allTextContents();
+    return productTitleList;
   }
 
   async getProductImageSrc(itemDataTest: string) {

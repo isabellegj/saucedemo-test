@@ -11,7 +11,7 @@ const productDataTestList = [
   "Test.allthethings() T-Shirt (Red)",
 ];
 
-test.describe("Product name standard_user tests", () => {
+test.describe("Product name visual_user tests", () => {
   let loginPage: LoginPage;
   let inventoryPage: InventoryPage;
 
@@ -20,7 +20,7 @@ test.describe("Product name standard_user tests", () => {
     inventoryPage = new InventoryPage(page);
 
     await loginPage.goto();
-    await loginPage.login("standard_user", "secret_sauce");
+    await loginPage.login("visual_user", "secret_sauce");
   });
 
   productDataTestList.forEach((product) => {
