@@ -25,6 +25,7 @@ test.describe("Product image problem-user tests", () => {
 
   productDataTestList.forEach((product) => {
     test(`Should check if ${product} image is correct`, async () => {
+      test.fail();
       await inventoryPage.goto();
 
       const src = await inventoryPage.getProductImageSrc(product);

@@ -4,12 +4,30 @@ import { InventoryPage } from "../../../pages/InventoryPage";
 import { CartPage } from "../../../pages/CartPage";
 
 const productDataTestList = [
-  "sauce-labs-backpack",
-  "sauce-labs-bike-light",
-  "sauce-labs-bolt-t-shirt",
-  "sauce-labs-fleece-jacket",
-  "sauce-labs-onesie",
-  "test.allthethings()-t-shirt-(red)",
+  {
+    name: "Sauce Labs Backpack",
+    dataTest: "sauce-labs-backpack",
+  },
+  {
+    name: "Sauce Labs Bike Light",
+    dataTest: "sauce-labs-bike-light",
+  },
+  {
+    name: "Sauce Labs Bolt T-Shirt",
+    dataTest: "sauce-labs-bolt-t-shirt",
+  },
+  {
+    name: "Sauce Labs Fleece Jacket",
+    dataTest: "sauce-labs-fleece-jacket",
+  },
+  {
+    name: "Sauce Labs Onesie",
+    dataTest: "sauce-labs-onesie",
+  },
+  {
+    name: "Test.allTheThings() T-Shirt (Red)",
+    dataTest: "test.allthethings()-t-shirt-(red)",
+  },
 ];
 
 test.describe("Add to cart error_user tests", () => {
@@ -27,8 +45,8 @@ test.describe("Add to cart error_user tests", () => {
   });
 
   productDataTestList.forEach((product) => {
-    test(`Should add ${product} and verify in cart page`, async () => {
-      await inventoryPage.addItemToCartByDataTest(product);
+    test(`Should add ${product.name} and verify in cart page`, async () => {
+      await inventoryPage.addItemToCartByDataTest(product.dataTest);
 
       const itemCount = await inventoryPage.getCartItemCount();
       expect(itemCount).toBe(1);
@@ -36,7 +54,7 @@ test.describe("Add to cart error_user tests", () => {
       await cartPage.goto();
 
       const cartItems = await cartPage.getCartItems();
-      expect(cartItems).toContain(product);
+      expect(cartItems).toContain(product.name);
     });
   });
 });
